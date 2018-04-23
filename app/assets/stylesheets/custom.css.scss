@@ -20,3 +20,8 @@ $navbar-default-bg: #c18a00;
     color: #fff;
 }
 
+.required-label::before {
+    color: #FF0000;
+    content: '* ';
+    display:inline;
+}
