@@ -13,5 +13,9 @@
     <div class="project-description">
       <%= simple_format(@project.description) %>
     </div>
+    <hr>
+    <% if @project.languages.any? %>
+      <p>Languages: <%= render @project.languages %></p>
+  <% end %>
   </div>
 </div>
