@@ -1,0 +1,10 @@
+<% list.each do |project| %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4><%= link_to project.name, project_path(project.id) %></h4>
+    </div>
+    <div class="panel-body">
+      <%= project.description %>
+    </div>
+  </div>
+<% end %>

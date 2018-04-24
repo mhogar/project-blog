@@ -1,12 +1,17 @@
-<div class="row">
-  <div class="col-md-4">
-    <h2 class="project-title"><%= @project.name %></h2>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="row">
+      <div class="col-md-4">
+        <h3 class="project-title"><%= @project.name %></h3>
+      </div>
+      <div class="col-md-4 col-md-offset-4 repo-link">
+        <%= icon('fas', 'cloud') %> <strong>Repo:</strong> <%= link_to "#{@project.repo_link}", @project.repo_link %>
+      </div>
+    </div>
   </div>
-  <div class="col-md-4 col-md-offset-4 well repo-link">
-    <%= icon('fas', 'cloud') %> <strong>Repo:</strong> <%= link_to "#{@project.repo_link}", @project.repo_link %>
+  <div class="panel-body">
+    <div class="project-description">
+      <%= simple_format(@project.description) %>
+    </div>
   </div>
-</div>
-
-<div class="well project-description">
-  <%= simple_format(@project.description) %>
 </div>
