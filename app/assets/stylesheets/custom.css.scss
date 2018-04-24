@@ -1,4 +1,4 @@
-$navbar-default-bg: #c18a00;
+$navbar-default-bg: #54006d;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -12,6 +12,7 @@ $navbar-default-bg: #c18a00;
   font-weight: bold;
 }
 
+/*
 .nav.navbar-nav > li > a {
     color: #fff;
 }
@@ -19,9 +20,58 @@ $navbar-default-bg: #c18a00;
 .nav.navbar-nav.navbar-right > li > a {
     color: #fff;
 }
+*/
+
+.alert-notice {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #468847;
+    text-align: left;
+}
+
+.alert-alert {
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+    text-align: left;
+}
+
+.center {
+  text-align: center;
+}
+
+.main-navbar {
+  box-shadow: 0px 3px 10px #555;
+}
+
+body {
+    padding-top: 100px;
+    padding-bottom: 50px;
+  
+    background-image: url("space_tile.jpg");
+
+    height: 100%; 
+
+    background-position: center;
+    background-repeat: repeat;
+    background-attachment: fixed;
+}
 
 .required-label::before {
     color: #FF0000;
     content: '* ';
     display:inline;
 }
+
+.footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #fff;
+  color: #fff;
+}
+
+/*
+.panel-default {
+  box-shadow: 5px 5px 8px #777777;
+}
+*/

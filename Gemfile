@@ -7,6 +7,8 @@ gem 'rails', '4.2.5'
 gem 'devise'
 gem 'devise-bootstrap-views'
 
+gem 'font-awesome-sass', '~> 5.0.9'
+
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
