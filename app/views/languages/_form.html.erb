@@ -1,0 +1,29 @@
+<%= render "shared/errors", obj: @lang %>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4><%= heading %></h4>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-xs-12">
+        <%= form_for @lang, html: {class: "form-horizontal", role: "form"} do |f| %>
+          <div class="form-group">
+            <div class="control-label col-sm-2 required-label">
+              <%= f.label :name %><br>
+            </div>
+            <div class="col-sm-8">
+              <%= f.text_field :name, class: "form-control", placeholder: "Name of language", autofocus: true %>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <%= f.submit class: "btn btn-primary bt-lg" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="col-md-4 col-md-offest-4 required-label"><strong>Required Field</strong></div>
+    </div>
+  </div>
+</div>

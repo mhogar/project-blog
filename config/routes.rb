@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'user_projects/:id', to: 'users#user_projects'
   
   resources :projects
+  resources :languages, except: [:show, :destroy]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

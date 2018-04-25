@@ -1,3 +1,5 @@
 <span class="badge language-badge">
-  <%= image_tag("language_icons/#{language.name}_icon.png", alt: "#{language.name} icon", class: "language-icon") %> <%= language.name.capitalize! %>
+  <% img_name = "#{language.name}_icon.png" %>
+  <% img_name = "default_icon.png" unless FileTest.exist?(Rails.root.join('app', 'assets', 'images', 'language_icons', img_name)) %>
+  <%= image_tag("language_icons/#{img_name}", alt: "#{language.name} icon", class: "language-icon") %> <%= language.name.capitalize! %>
 </span>
