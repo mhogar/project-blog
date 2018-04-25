@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   
-  def my_projects
+  def user_projects
     @user = current_user
-    @projects = current_user.projects
+    #@user = User.find(params[:id])
+    @projects = @user.projects
   end
 end
