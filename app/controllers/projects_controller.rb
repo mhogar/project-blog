@@ -1,11 +1,14 @@
 class ProjectsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show] 
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_project, except: [:index, :new, :create]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
   
   def index
+    @user = User.find(params[:user_id])
+    @projects = @user.projects
   end
   
   def show
-    @project = Project.find(params[:id])
   end
   
   def new
@@ -24,8 +27,38 @@ class ProjectsController < ApplicationController
     end
   end
   
+  def edit
+  end
+  
+  def update
+    if @project.update(project_params)
+      flash[:success] = "Project was succcessfully updated"
+      redirect_to project_path(@project)
+    else
+      render 'edit'
+    end
+  end
+  
+  def destroy
+    user = @project.user
+    @project.destroy
+    flash[:success] = "Project was succcessfully deleted"
+    redirect_to user_projects_path(user.id)
+  end
+  
   private
     def project_params
       params.require(:project).permit(:name, :repo_link, :description, language_ids: [])
+    end
+    
+    def set_project
+      @project = Project.find(params[:id])
+    end
+    
+    def require_same_user
+      if current_user != @project.user
+        flash[:danger] = "You can only edit or delete your own projects"
+        redirect_to root_path
+      end
     end
 end

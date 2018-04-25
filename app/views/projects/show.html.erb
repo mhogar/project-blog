@@ -13,9 +13,10 @@
     <div class="project-description">
       <%= simple_format(@project.description) %>
     </div>
-    <hr>
     <% if @project.languages.any? %>
-      <p>Languages: <%= render @project.languages %></p>
-  <% end %>
+      <hr><p>Languages: <%= render @project.languages %></p>
+    <% end %>
+    <%= render 'project_actions', project: @project %>
+    <div class="center">[ <%= link_to 'Back to listing', user_projects_path(@project.user.id) %> ]</div>
   </div>
 </div>

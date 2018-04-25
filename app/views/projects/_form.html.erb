@@ -38,8 +38,7 @@
               <%= f.label "Languages" %><br>
             </div>
             <div class="col-sm-8">
-              <% ops = Language.all.map { |lang| [lang.name.capitalize!, lang.id] } %>
-              <%= f.select(:language_ids, ops, {}, 
+              <%= f.collection_select(:language_ids, Language.all, :id, :name, {}, 
                   {class: "selectpicker", 'multiple': "multiple", 'data-live-search': "true", 'title': "Choose languages...", 'data-style': "btn-primary", 'data-size': "10", 'data-width': "100%"}) %>
             </div>
           </div>
@@ -50,9 +49,7 @@
           </div>
         <% end %>
         
-        <div align="center">
-          [ <%#= link_to "Cancel and return to listing", articles_path %> ]
-        </div>
+        <div align="center">[ <%= link_to "Cancel", user_projects_path(@project.user ? @project.user.id : current_user.id) %> ]</div>
       </div>
       <div class="col-md-4 col-md-offest-4 required-label"><strong>Required Field</strong></div>
     </div>

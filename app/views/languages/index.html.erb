@@ -2,7 +2,7 @@
   <h1>Languages</h1>
   <ul class="lang-list">
     <% @langs.each do |lang| %>
-      <li><strong><%= lang.name.capitalize! %></strong> [<%= link_to 'Edit', edit_language_path(lang) %>]</li>
+      <li><strong><%= lang.name %></strong> [<%= link_to 'Edit', edit_language_path(lang) %>]</li>
     <% end %>
   </ul>
 </div>

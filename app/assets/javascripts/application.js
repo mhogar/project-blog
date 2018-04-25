@@ -16,3 +16,7 @@
 //= require bootstrap-select
 //= require turbolinks
 //= require_tree .
+
+$(document).on('turbolinks:load', function(){
+  $('.selectpicker').selectpicker('render');
+});

@@ -6,9 +6,12 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
-  get 'user_projects/:id', to: 'users#user_projects'
   
-  resources :projects
+  resources :users do
+    resources :projects, only: [:index]
+  end
+  
+  resources :projects, except: [:index]
   resources :languages, except: [:show, :destroy]
 
   # Example of regular route:
