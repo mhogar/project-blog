@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
-  get 'user_projects', to: 'users#user_projects'
+  get 'user_projects/:id', to: 'users#user_projects'
   
   resources :projects
 
