@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   
   resources :projects, except: [:index]
   resources :languages, except: [:show, :destroy]
+  resources :language_icons, except: [:index, :show]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

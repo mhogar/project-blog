@@ -1,4 +1,4 @@
-<%= render "shared/errors", obj: @lang %>
+<%= render "shared/errors", obj: @lang_icon %>
 
 <div class="panel panel-default">
   <div class="panel-heading">
@@ -7,21 +7,14 @@
   <div class="panel-body">
     <div class="row">
       <div class="col-xs-12">
-        <%= form_for @lang, html: {multipart: true, class: "form-horizontal", role: "form"} do |f| %>
+        <%= form_for @lang_icon, html: {multipart: true, class: "form-horizontal", role: "form"} do |f| %>
           <div class="form-group">
             <div class="control-label col-sm-2 required-label">
-              <%= f.label :name %><br>
+              <%= f.label :image %><br>
             </div>
             <div class="col-sm-8">
-              <%= f.text_field :name, class: "form-control", placeholder: "Name of language", autofocus: true %>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="control-label col-sm-2 required-label">
-              <%= f.label :icon %><br>
-            </div>
-            <div class="col-sm-8">
-              <%= f.file_field :icon, class: "form-control" %>
+              <%= f.file_field :image, class: "form-control" %>
+              <%= f.hidden_field :image_cache %>
             </div>
           </div>
           <div class="form-group">
@@ -33,6 +26,6 @@
       </div>
       <div class="col-md-4 col-md-offest-4 required-label"><strong>Required Field</strong></div>
     </div>
-    <div class="center">[<%= link_to "Cancel", languages_path %>]</div>
+    <div class="center">[<%= link_to "Cancel", new_language_path %>]</div>
   </div>
 </div>
