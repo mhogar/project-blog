@@ -9,7 +9,10 @@ Rails.application.routes.draw do
   
   resources :users do
     resources :projects, only: [:index]
+    resource :profile, controller: 'user_profiles', only: [:show]
   end
+  
+  resource :profile, controller: 'user_profiles', except: [:show]
   
   resources :projects, except: [:index]
   resources :languages, except: [:show, :destroy]

@@ -21,7 +21,7 @@ class ProjectTest < ActiveSupport::TestCase
   end
   
   test "name should not be too long" do
-    @project.name = "a" * 31
+    @project.name = "a" * (get_validation_max(Project, :name) + 1)
     assert_not @project.valid?
   end
   
@@ -36,7 +36,7 @@ class ProjectTest < ActiveSupport::TestCase
   end
   
   test "description should not be too long" do
-    @project.description = "a" * 1001
+    @project.description = "a" * (get_validation_max(Project, :description) + 1)
     assert_not @project.valid?
   end
   
@@ -46,7 +46,7 @@ class ProjectTest < ActiveSupport::TestCase
   end
   
   test "repo link should not be too long" do
-    @project.repo_link = "a" * 31
+    @project.repo_link = "a" * (get_validation_max(Project, :repo_link) + 1)
     assert_not @project.valid?
   end
 end

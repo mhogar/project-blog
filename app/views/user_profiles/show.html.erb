@@ -1,0 +1,22 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="row">
+      <div class="col-md-4">
+        <h3>User <%= @user.id %>'s Profile</h3>
+      </div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <% if @profile.nil? %>
+      <% if @user == current_user %>
+        <p>You haven't created your profile yet, create it:</p>
+        <%= link_to "Create Profile", new_profile_path, class: "btn btn-primary" %>
+      <% else %>
+        <p>This user hasn't created their profile yet.</p>
+      <% end %>
+    <% else %>
+      <p><%= raw(@profile.to_json) %></p>
+      <%= link_to("Edit Profile", edit_profile_path, class: "btn btn-primary") if @user == current_user %>
+    <% end %>
+  </div>
+</div>
