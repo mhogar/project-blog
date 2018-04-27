@@ -35,7 +35,7 @@ class LanguagesController < ApplicationController
   
   private
     def lang_params
-      params.require(:language).permit(:name, :icon)
+      params.require(:language).permit(:name, :language_icon_id)
     end
     
     def set_lang

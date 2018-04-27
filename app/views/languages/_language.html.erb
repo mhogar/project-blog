@@ -2,5 +2,5 @@
   <%# img_name = "#{language.id}_icon.png" %>
   <%# img_name = "default_icon.png" unless FileTest.exist?(Rails.root.join('app', 'assets', 'images', 'language_icons', img_name)) %>
   <%#= image_tag("language_icons/#{img_name}", alt: "#{language.name} icon", class: "language-icon") %> <%#= language.name %>
-  <%= image_tag(language.icon, alt: "#{language.name} icon", class: "language-icon") %> <%= language.name %>
+  <%= image_tag(language.language_icon.image, alt: "#{language.name} icon", class: "language-icon") %> <%= language.name %>
 </span>

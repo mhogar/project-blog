@@ -4,4 +4,5 @@ class Language < ActiveRecord::Base
   belongs_to :language_icon
   
   validates :name, presence: true, length: { maximum: 15 }
+  validates :language_icon_id, presence: true
 end
