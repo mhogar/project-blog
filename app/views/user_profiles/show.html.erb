@@ -24,7 +24,8 @@
         <h4>Occupation</h4>
         <strong><%= @profile.occupation %></strong>
         <hr>
-        <%= link_to("Edit Profile", edit_profile_path, class: "btn btn-primary btn-xs") if @user == current_user %>
+        <h4><%= pluralize(@user.projects.count, "Projects") %></h4>
+        <%= link_to("View Projects", user_projects_path(@user), class: "btn btn-success btn-xs") %>
       </div>
     </div>
     <div class="panel panel-default col-md-8 col-md-offset-1">
@@ -35,8 +36,12 @@
         <h4>About Me</h4>
         <hr>
         <p><%= @profile.about %></p>
-        <hr>
-        <%= link_to "View User #{@user.id}'s #{@user.projects.count} projects", user_projects_path(@user) %>
+        <% if @user== current_user %>
+          <div class="profile-actions">
+            <%= link_to("Edit Profile", edit_profile_path, class: "btn btn-primary btn-xs") %>
+            <%= link_to "Delete Profile", profile_path, method: :delete, data: {confirm: "Are you sure you want to delete your profile?"}, class: "btn btn-xs btn-danger" %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
