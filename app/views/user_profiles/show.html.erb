@@ -1,22 +1,45 @@
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <div class="row">
-      <div class="col-md-4">
+<% if @profile.nil? %>
+  <div class="row">
+    <div class="panel panel-default">
+      <div class="panel-heading">
         <h3>User <%= @user.id %>'s Profile</h3>
+      </div>
+      <div class="panel-body">
+        <% if @user == current_user %>
+          <p>You haven't created your profile yet, create it:</p>
+          <%= link_to "Create Profile", new_profile_path, class: "btn btn-primary" %>
+        <% else %>
+          <p>This user hasn't created their profile yet.</p>
+        <% end %>
       </div>
     </div>
   </div>
-  <div class="panel-body">
-    <% if @profile.nil? %>
-      <% if @user == current_user %>
-        <p>You haven't created your profile yet, create it:</p>
-        <%= link_to "Create Profile", new_profile_path, class: "btn btn-primary" %>
-      <% else %>
-        <p>This user hasn't created their profile yet.</p>
-      <% end %>
-    <% else %>
-      <p><%= raw(@profile.to_json) %></p>
-      <%= link_to("Edit Profile", edit_profile_path, class: "btn btn-primary") if @user == current_user %>
-    <% end %>
+<% else %>
+  <div class="row">
+    <div class="panel panel-default col-md-3">
+      <div class="panel-body">
+        <h4>Name</h4>
+        <strong><%= @profile.full_name %></strong>
+        <hr>
+        <h4>Occupation</h4>
+        <strong><%= @profile.occupation %></strong>
+        <hr>
+        <%= link_to("Edit Profile", edit_profile_path, class: "btn btn-primary btn-xs") if @user == current_user %>
+      </div>
+    </div>
+    <div class="panel panel-default col-md-8 col-md-offset-1">
+      <div class="panel-heading">
+        <h3>User <%= @user.id %>'s Profile</h3>
+      </div>
+      <div class="panel-body">
+        <h4>About Me</h4>
+        <hr>
+        <p><%= @profile.about %></p>
+        <hr>
+        <%= link_to "View User #{@user.id}'s #{@user.projects.count} projects", user_projects_path(@user) %>
+      </div>
+    </div>
   </div>
-</div>
+<% end %>
+
+
