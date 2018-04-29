@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   resource :profile, controller: 'user_profiles', except: [:show]
   
   resources :projects, except: [:index]
-  resources :languages, except: [:show, :destroy]
+  resources :languages, except: [:show]
   resources :language_icons, except: [:index, :show]
 
   # Example of regular route:

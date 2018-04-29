@@ -1,9 +1,15 @@
 <div class="well">
   <h1>Languages</h1>
-  <ul class="lang-list">
+  <table class="table table-striped">
     <% @langs.each do |lang| %>
-      <li><%= image_tag(lang.language_icon.image, alt: "#{lang.name} icon", class: "language-icon") %> <strong><%= lang.name %></strong> [<%= link_to 'Edit', edit_language_path(lang) %>]</li>
+      <tr>
+        <td><%= image_tag(lang.language_icon.image, alt: "#{lang.name} icon", class: "language-icon") %> <strong><%= lang.name %></strong></td>
+        <td>
+          <%= link_to "Edit", edit_language_path(lang), class: "btn btn-primary btn-xs" %> 
+          <%= link_to "Delete", language_path(lang), method: :delete, data: {confirm: "Are you sure you want to delete this language?"}, class: "btn btn-xs btn-danger" %>
+        </td>
+      </tr>
     <% end %>
-  </ul>
+  </table>
 </div>
   

@@ -1,6 +1,6 @@
 class LanguagesController < ApplicationController
   before_action :authenticate_admin!
-  before_action :set_lang, only: [:edit, :update]
+  before_action :set_lang, except: [:index, :new, :create]
   
   def index
     @langs = Language.all
@@ -31,6 +31,12 @@ class LanguagesController < ApplicationController
     else
       render 'edit'
     end
+  end
+  
+  def destroy
+    @lang.destroy
+    flash[:success] = "Language was succcessfully deleted"
+    redirect_to languages_path
   end
   
   private
