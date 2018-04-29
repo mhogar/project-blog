@@ -14,8 +14,15 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require bootstrap-select
+//= require image-picker
 //= require turbolinks
 //= require_tree .
+
+$(document).on("turbolinks:before-cache", function() {
+  if(document.getElementById('bootstrap-select')) {
+    document.getElementById('bootstrap-select').remove();
+  }
+});
 
 $(document).on('turbolinks:load', function(){
   $('.selectpicker').selectpicker('render');
