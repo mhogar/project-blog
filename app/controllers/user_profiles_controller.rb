@@ -3,7 +3,7 @@ class UserProfilesController < ApplicationController
   before_action :set_profile, except: [:show, :new, :create]
   
   def show
-    @user = User.find(params[:user_id])
+    @user = User.find_by(user_name: params[:user_name])
     @profile = @user.user_profile
   end
   

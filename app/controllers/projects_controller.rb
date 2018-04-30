@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
   before_action :require_same_user, only: [:edit, :update, :destroy]
   
   def index
-    @user = User.find(params[:user_id])
+    @user = User.find_by(user_name: params[:user_name])
     @projects = @user.projects
   end
   

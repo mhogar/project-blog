@@ -15,12 +15,12 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="version"><small>v1.0.0</small></li>
+        <li><%= link_to "Users", users_path %></li>
         <% if user_signed_in? %>
-          <li><%= link_to "My Profile", user_profile_path(current_user) %></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Projects <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><%= link_to "My Projects", user_projects_path(current_user.id) %></li>
+              <li><%= link_to "My Projects", user_projects_path(current_user) %></li>
               <li><%= link_to "Create a new Project", new_project_path %></li>
               <li><a href="#">Something else here</a></li>
               <li role="separator" class="divider"></li>
@@ -29,6 +29,8 @@
               <li><a href="#">One more separated link</a></li>
             </ul>
           </li>
+          <li><%= link_to "My Profile", user_profile_path(current_user) %></li>
+          <li><%= link_to "My Account", edit_user_registration_path %></li>
         <% elsif admin_signed_in? %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Languages <span class="caret"></span></a>
@@ -37,6 +39,7 @@
               <li><%= link_to "Create a new Language", new_language_path %></li>
             </ul>
           </li>
+          <li><%= link_to "My Account", edit_admin_registration_path %></li>
         <% end %>
       </ul>
       <form class="navbar-form navbar-left">
@@ -47,7 +50,12 @@
       </form>
       <ul class="nav navbar-nav navbar-right">
         <li class="user-name text-right">
-          <%= icon('fas', 'user') %> <%= current_user.user_name if user_signed_in? %>
+          <%= icon('fas', 'user') %> 
+          <% if user_signed_in? %>
+            <%= current_user.user_name %>
+          <% elsif admin_signed_in? %>
+            Admin
+          <% end %>
         </li>
         <li>
           <% if user_signed_in? || admin_signed_in? %>

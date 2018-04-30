@@ -1,0 +1,15 @@
+<% @users.each do |user| %>
+  <% profile = user.user_profile %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3><%= link_to user.display_name, user_profile_path(user) %></h3>
+    </div>
+    <div class="panel-body">
+      <% if profile.nil? %>
+        <strong>No Profile</strong>
+      <% else %>
+        <%= truncate(profile.about, length: 100) %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
