@@ -6,4 +6,6 @@ class User < ActiveRecord::Base
          
   has_many :projects, dependent: :destroy
   has_one :user_profile, dependent: :destroy
+  
+  validates :user_name, presence: true, uniqueness: true
 end

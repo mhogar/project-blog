@@ -46,6 +46,9 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
+        <li class="user-name text-right">
+          <%= icon('fas', 'user') %> <%= current_user.user_name if user_signed_in? %>
+        </li>
         <li>
           <% if user_signed_in? || admin_signed_in? %>
             <%= link_to "Logout", destroy_user_session_path, method: :delete %>
