@@ -12,10 +12,15 @@ $navbar-default-bg: #54006d;
   font-weight: bold;
 }
 
-.version {
-  //font-size: 1em;
+#version {
+  font-size: 1em;
   color: #ccc;
+  padding: 0px;
   padding-top: 5px;
+}
+
+#version:hover {
+  color: #777;
 }
 
 .user-name {

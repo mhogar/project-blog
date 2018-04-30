@@ -17,6 +17,6 @@
       <hr><p>Languages: <%= render @project.languages %></p>
     <% end %>
     <%= render 'project_actions', project: @project %>
-    <div class="center">[ <%= link_to 'Back to listing', user_projects_path(@project.user.id) %> ]</div>
+    <div class="center">[ <%= link_to 'Back to listing', user_projects_path(@project.user) %> ]</div>
   </div>
 </div>

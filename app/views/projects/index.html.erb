@@ -1,4 +1,8 @@
-<div class="page-title"><%= @user.user_name %>'s Projects</div>
+<div class="page-title">
+  <%= @user.user_name %>'s Projects
+  <%= link_to 'View Profile', user_profile_path(@user), class: "btn btn-success btn-xs" %>
+  </div>
+<div class="center"></div>
 
 <div class="center"><%= will_paginate %></div>
 <%= render 'projects/projects', list: @projects %>
