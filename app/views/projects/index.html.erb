@@ -1,3 +1,5 @@
 <div class="page-title"><%= @user.user_name %>'s Projects</div>
 
+<div class="center"><%= will_paginate %></div>
 <%= render 'projects/projects', list: @projects %>
+<div class="center"><%= will_paginate %></div>
