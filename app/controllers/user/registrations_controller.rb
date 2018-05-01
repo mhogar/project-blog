@@ -1,6 +1,15 @@
 class User::RegistrationsController < Devise::RegistrationsController
   before_action :configure_permitted_parameters
   
+  def create
+    super
+    
+    if resource.save
+      resource.user_preference = UserPreference.new
+      resource.save
+    end
+  end
+  
   protected
   
   def configure_permitted_parameters

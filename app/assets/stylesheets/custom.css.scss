@@ -56,6 +56,14 @@ $navbar-default-bg: #54006d;
   text-align: center;
 }
 
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
 .main-navbar {
   box-shadow: 0px 3px 10px #555;
 }
@@ -93,6 +101,10 @@ body {
   font-weight: bold;
   border-bottom: 2px solid #777;
   margin-bottom: 20px;
+}
+
+.form-check-box {
+  padding-top: 6px;
 }
 
 /*

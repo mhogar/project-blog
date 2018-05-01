@@ -5,10 +5,13 @@ class User < ActiveRecord::Base
          
   has_many :projects, dependent: :destroy
   has_one :user_profile, dependent: :destroy
+  has_one :user_preference, dependent: :destroy
   
   VALID_USER_NAME_REGEX = /[^(a-zA-Z0-9_)]/
   validates :user_name, presence: true, uniqueness: true, length: { minimum: 3, maximum: 15 }, 
           format: {without: VALID_USER_NAME_REGEX, message: "No special characters: only letters, numbers, and underscores" }
+          
+  #validates :user_preference, presence: true
   
   #override
   def remember_me

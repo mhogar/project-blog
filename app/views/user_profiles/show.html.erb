@@ -38,6 +38,7 @@
         <p><%= @profile.about %></p>
         <% if @user== current_user %>
           <div class="profile-actions">
+            <%= link_to("Edit Profile Preferences", edit_preferences_path, class: "btn btn-primary btn-xs") %>
             <%= link_to("Edit Profile", edit_profile_path, class: "btn btn-primary btn-xs") %>
             <%= link_to "Delete Profile", profile_path, method: :delete, data: {confirm: "Are you sure you want to delete your profile?"}, class: "btn btn-xs btn-danger" %>
           </div>
