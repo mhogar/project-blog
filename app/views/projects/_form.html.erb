@@ -49,7 +49,7 @@
           </div>
         <% end %>
         
-        <div align="center">[ <%= link_to "Cancel", user_projects_path(@project.user ? @project.user.id : current_user.id) %> ]</div>
+        <div align="center">[ <%= link_to "Cancel", user_projects_path(current_user) %> ]</div>
       </div>
       <div class="col-md-4 col-md-offest-4 required-label"><strong>Required Field</strong></div>
     </div>
