@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     resource :profile, controller: 'user_profiles', only: [:show]
   end
   
-  resource :profile, controller: 'user_profiles', except: [:show, :index]
+  resource :profile, controller: 'user_profiles', only: [:edit, :update]
   resource :preferences, controller: 'user_preferences', only: [:edit, :update, :destroy]
   
   resources :projects, except: [:index]

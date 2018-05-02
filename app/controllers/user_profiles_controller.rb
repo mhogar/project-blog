@@ -7,27 +7,6 @@ class UserProfilesController < ApplicationController
     @profile = @user.user_profile
   end
   
-  def new
-    if current_user.user_profile.nil?
-      @profile = UserProfile.new
-    else
-      flash[:danger] = "Your profile already exists"
-      redirect_to user_profile_path(current_user)
-    end
-  end
-  
-  def create
-    @profile = UserProfile.new(profile_params)
-    @profile.user = current_user
-    
-    if @profile.save
-      flash[:success] = "Profile was successfully created"
-      redirect_to user_profile_path(current_user)
-    else
-      render 'new'
-    end
-  end
-  
   def edit
   end
   
@@ -38,12 +17,6 @@ class UserProfilesController < ApplicationController
     else
       render 'edit'
     end
-  end
-  
-  def destroy
-    @profile.destroy
-    flash[:success] = "Profile was succcessfully deleted"
-    redirect_to user_profile_path(current_user)
   end
   
   private

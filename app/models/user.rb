@@ -13,6 +13,10 @@ class User < ActiveRecord::Base
           
   #validates :user_preference, presence: true
   
+  def display_name
+    user_profile.full_name.blank? ? user_name : (user_preference.use_real_name? ? "#{user_profile.full_name} (#{user_name})" : user_name)
+  end
+  
   #override
   def remember_me
     true
@@ -20,10 +24,6 @@ class User < ActiveRecord::Base
   
   #override
   def to_param
-    user_name
-  end
-  
-  def display_name
     user_name
   end
 end

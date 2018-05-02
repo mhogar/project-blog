@@ -38,11 +38,10 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="user-name text-right">
-          <%= icon('fas', 'user') %> 
           <% if user_signed_in? %>
-            <%= current_user.user_name %>
+            <%= icon('fas', 'user') %> <%= current_user.user_name %>
           <% elsif admin_signed_in? %>
-            Admin
+            <%= icon('fas', 'user') %> Admin
           <% end %>
         </li>
         <li>

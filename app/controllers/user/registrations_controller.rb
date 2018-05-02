@@ -6,6 +6,7 @@ class User::RegistrationsController < Devise::RegistrationsController
     
     if resource.save
       resource.user_preference = UserPreference.new
+      resource.user_profile = UserProfile.new
       resource.save
     end
   end

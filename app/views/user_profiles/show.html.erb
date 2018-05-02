@@ -1,17 +1,10 @@
-<% if @profile.nil? %>
-  <div class="row">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3><%= @user.user_name %>'s Profile</h3>
-      </div>
-      <div class="panel-body">
-        <% if @user == current_user %>
-          <p>You haven't created your profile yet, create it:</p>
-          <%= link_to "Create Profile", new_profile_path, class: "btn btn-primary" %>
-        <% else %>
-          <p>This user hasn't created their profile yet.</p>
-        <% end %>
-      </div>
+<% if @user != current_user && @user.user_preference.profile_private? %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3><%= @user.display_name %>'s Profile</h3>
+    </div>
+    <div class="panel-body">
+      <strong>This profile is private.</strong>
     </div>
   </div>
 <% else %>
@@ -19,10 +12,10 @@
     <div class="panel panel-default col-md-3">
       <div class="panel-body">
         <h4>Name</h4>
-        <strong><%= @profile.full_name %></strong>
+        <strong><%= @profile.full_name.blank? ? "Anonymous" : @profile.full_name %></strong>
         <hr>
         <h4>Occupation</h4>
-        <strong><%= @profile.occupation %></strong>
+        <strong><%= @profile.occupation.blank? ? "Not specified" : @profile.occupation %></strong>
         <hr>
         <h4><%= pluralize(@user.projects.count, "Projects") %></h4>
         <%= link_to("View Projects", user_projects_path(@user), class: "btn btn-success btn-xs") %>
@@ -30,22 +23,18 @@
     </div>
     <div class="panel panel-default col-md-8 col-md-offset-1">
       <div class="panel-heading">
-        <h3><%= @user.user_name %>'s Profile</h3>
+        <h3><%= @user.display_name %>'s Profile <%= raw('<span class="profile-private">private</span>') if @user.user_preference.profile_private? %></h3>
       </div>
       <div class="panel-body">
         <h4>About Me</h4>
-        <hr>
-        <p><%= @profile.about %></p>
+        <p><%= @profile.about.blank? ? raw("<strong>No about me</strong>") : @profile.about %></p>
         <% if @user== current_user %>
           <div class="profile-actions">
-            <%= link_to("Edit Profile Preferences", edit_preferences_path, class: "btn btn-primary btn-xs") %>
             <%= link_to("Edit Profile", edit_profile_path, class: "btn btn-primary btn-xs") %>
-            <%= link_to "Delete Profile", profile_path, method: :delete, data: {confirm: "Are you sure you want to delete your profile?"}, class: "btn btn-xs btn-danger" %>
+            <%= link_to("Edit Profile Preferences", edit_preferences_path, class: "btn btn-primary btn-xs") %>
           </div>
         <% end %>
       </div>
     </div>
   </div>
 <% end %>
-
-
