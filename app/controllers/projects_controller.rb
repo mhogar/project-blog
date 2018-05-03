@@ -43,7 +43,7 @@ class ProjectsController < ApplicationController
     user = @project.user
     @project.destroy
     flash[:success] = "Project was succcessfully deleted"
-    redirect_to user_projects_path(user.id)
+    redirect_to user_projects_path(user)
   end
   
   private
