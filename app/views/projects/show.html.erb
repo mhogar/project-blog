@@ -11,7 +11,7 @@
   </div>
   <div class="panel-body">
     <div class="project-description">
-      <%= markdown(@project.description) %>
+      <%= @project.render_description %>
     </div>
     <% if @project.languages.any? %>
       <hr><p>Languages: <%= render 'languages/languages', langs: @project.languages %></p>

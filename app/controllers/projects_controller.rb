@@ -48,7 +48,7 @@ class ProjectsController < ApplicationController
   
   private
     def project_params
-      params.require(:project).permit(:name, :repo_link, :description, language_ids: [])
+      params.require(:project).permit(:name, :repo_link, :description, :description_markdown, language_ids: [])
     end
     
     def set_project

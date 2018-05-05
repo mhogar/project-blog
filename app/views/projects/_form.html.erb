@@ -35,6 +35,14 @@
           </div>
           <div class="form-group">
             <div class="control-label col-sm-2">
+              <%= f.label "Interpret as Markdown" %><br>
+            </div>
+            <div class="form-check-box col-sm-8">
+              <%= f.check_box :description_markdown %>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="control-label col-sm-2">
               <%= f.label "Languages" %><br>
             </div>
             <div class="col-sm-8">
