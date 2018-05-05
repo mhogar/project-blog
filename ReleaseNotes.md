@@ -8,7 +8,6 @@
   - Initial release
 - 1.0.1
   - Fixed CRUD links for projects
-- 1.1.0 (Not yet released)
+- 1.1.0
   - Project descriptions can now be formatted using markdown, or rendered as just plain text
-  - Added application tutorial page
   - Added edit and delete operations for language icons (Admin only)
