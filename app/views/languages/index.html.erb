@@ -1,9 +1,9 @@
 <div class="well">
-  <h1>Languages</h1>
+  <h1>Languages <%= link_to "Manage Icons", language_icons_path, class: "btn btn-xs btn-success" %></h1>
   <table class="table table-striped">
     <% @langs.each do |lang| %>
       <tr>
-        <td><%= image_tag(lang.language_icon.image, alt: "#{lang.name} icon", class: "language-icon") %> <strong><%= lang.name %></strong></td>
+        <td><%= image_tag(lang.icon_image, alt: "#{lang.name} icon", class: "language-icon") %> <strong><%= lang.name %></strong></td>
         <td>
           <%= link_to "Edit", edit_language_path(lang), class: "btn btn-primary btn-xs" %> 
           <%= link_to "Delete", language_path(lang), method: :delete, data: {confirm: "Are you sure you want to delete this language?"}, class: "btn btn-xs btn-danger" %>

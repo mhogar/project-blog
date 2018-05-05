@@ -1,0 +1,17 @@
+<div class="well">
+  <h1>Language Icons <%= link_to "Create a new icon", new_language_icon_path, class: "btn btn-xs btn-success" %></h1>
+  <table class="table table-striped">
+    <% @lang_icons.each do |icon| %>
+      <tr>
+        <td><%= image_tag(icon.image, alt: "language icon", class: "language-icon") %></td>
+        <td><strong><%= icon.image.file.filename %></strong></td>
+        <td>
+          <%= link_to "Edit", edit_language_icon_path(icon), class: "btn btn-primary btn-xs" %> 
+          <%= link_to "Delete", language_icon_path(icon), method: :delete, data: {confirm: "Are you sure you want to delete this language icon?"}, class: "btn btn-xs btn-danger" %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+  <div class="center">[ <%= link_to 'Back to Languages View', languages_path %> ]</div>
+</div>
+  

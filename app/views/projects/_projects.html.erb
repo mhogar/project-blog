@@ -6,7 +6,7 @@
     <div class="panel-body">
       <%= markdown(truncate(project.description, length: 100)) %>
       <% if project.languages.any? %>
-        <hr><p>Languages: <%= render project.languages %></p>
+        <hr><p>Languages: <%= render 'languages/languages', langs: project.languages %></p>
       <% end %>
       <%= render 'project_actions', project: project %>
     </div>

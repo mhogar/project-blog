@@ -1,6 +1,10 @@
 class LanguageIconsController < ApplicationController
   before_action :authenticate_admin!
-  before_action :set_icon, except: [:new, :create]
+  before_action :set_icon, except: [:index, :new, :create]
+  
+  def index
+    @lang_icons = LanguageIcon.all
+  end
   
   def new
     @lang_icon = LanguageIcon.new
@@ -11,7 +15,7 @@ class LanguageIconsController < ApplicationController
     
     if @lang_icon.save
       flash[:success] = "Language Icon was successfully created"
-      redirect_to new_language_path
+      redirect_to language_icons_path
     else
       render 'new'
     end
@@ -23,7 +27,7 @@ class LanguageIconsController < ApplicationController
   def update
     if @lang_icon.update(icon_params)
       flash[:success] = "Language Icon was succcessfully updated"
-      redirect_to new_language_path
+      redirect_to language_icons_path
     else
       render 'edit'
     end
@@ -32,7 +36,7 @@ class LanguageIconsController < ApplicationController
   def destroy
     @lang_icon.destroy
     flash[:success] = "Language Icon was succcessfully deleted"
-    redirect_to new_language_path
+    redirect_to language_icons_path
   end
   
   private

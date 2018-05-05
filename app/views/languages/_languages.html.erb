@@ -1,0 +1,5 @@
+<% langs.each do |lang| %>
+  <span class="badge language-badge">
+    <%= image_tag(lang.icon_image, alt: "#{lang.name} icon", class: "language-icon") %> <%= lang.name %>
+  </span>
+<% end %>
