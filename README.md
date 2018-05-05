@@ -16,3 +16,9 @@ _Project: Blog_ is a blog style web application that allows you easily and effor
   - Note: _Project: Blog_ uses Rails' default DBMS sqlite3
 - Run your local server
   - The command will vary depending on your development environment (local or cloud). For local, the command ` rails server` or `rails s` should work. Consult the appropriate documentation for the correct command.
+
+### Give credit where credit is due...
+
+- Authentication: [Devise](https://github.com/plataformatec/devise)
+- Image upload: [Carrierwave](https://github.com/carrierwaveuploader/carrierwave)
+- Markdown rendering: [Redcarpet](https://github.com/vmg/redcarpet)
