@@ -4,7 +4,7 @@ Check out the working app [here](http://ryan-stamp-project-blog.herokuapp.com/)
 
 ### About the app
 
-_Project: Blog_ is a blog style web application that allows you easily and effortlessly to organize and share your projects with the community.
+_Project: Blog_ is a blog style web application that allows you easily and effortlessly organize and share your projects with the community.
 
 ### How to run it yourself
 
