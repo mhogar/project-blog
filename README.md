@@ -1,6 +1,6 @@
 # Project: Blog
 
-Check out the working app [here](http://ryan-stamp-project-blog.herokuapp.com/)
+Check out the working app [here](http://mhogar-project-blog.herokuapp.com/)
 
 ### About the app
 
